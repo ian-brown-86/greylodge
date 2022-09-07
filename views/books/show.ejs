@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grey Lodge</title>
+</head>
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <h1><%= book.title %></h1>
+    <p><%= book.author %></p>
+
+    <h3>Reviews</h3>
+    <% let ratingAverage = 0; %>
+    <% book.reviews.forEach(r => { %>
+        <% ratingAverage += r.rating; %>
+        <div>
+            <p>
+                <strong>
+                    <%= r.rating %>
+                </strong>
+                &nbsp;&nbsp;
+                <%= r.body %>
+            </p>
+        </div>
+    <% }); %>
+
+    <h5>Average Rating <%= parseInt(ratingAverage / book.reviews.length); %></h5>
+
+    <hr>
+    
+    <h3>Leave a review for this book</h3>
+    <form action="/books/<%= book._id %>/reviews" method="POST">
+        <label>Rating:
+            <select name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5" selected>5</option>
+            </select>
+        </label><br>
+        <label>Review
+            <textarea name="body" cols="30" rows="10"></textarea>
+        </label><br>
+        <input type="submit" value="Add Review">
+    </form>
+
+    
+    <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete this Book">
+    </form>
+
+
+    <a href="/books/<%= book._id %>/edit">Edit This Book</a> 
+    <br>
+    <a href="/books">Back to Store</a>
+    <br>
+    <a href="/books/new">Add a New Book</a>
+</body>
+</html>

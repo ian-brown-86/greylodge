@@ -1,0 +1,22 @@
+<header>
+    <h1>Grey Lodge Books</h1>
+    <nav>
+        <ul>
+            <% if(user) { %>
+                <li>
+                <a href="/books">Go to Store</a>
+                </li> 
+                <li>
+                <a href="/logout">Log Out</a>
+                </li>
+            <% } else { %>
+                <li>
+                <a href="/login">Log In</a>
+                </li>
+                <li>
+                <a href="/signup">SignUp</a>
+                </li>
+            <% } %>
+        </ul>
+    </nav>
+</header>
