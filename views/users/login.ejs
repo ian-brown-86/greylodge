@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In to your Account</title>
+    <link href="../css/index-style.css" rel="stylesheet" type="text/css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Grey Lodge Books</title>
 </head>
 <body>
-    <h1>Log In Page</h1>
+    <div class="intro">
+        <h1 class="logo-header">
+            <span class="logo">Grey Lodge</span>
+        </h1>   
+    </div>
+    <h4>- rare books -</h4>
     <% if(error) { %>
-        <p style="color: red;"><%= error %></p>
+        <p style="color: rgb(173, 196, 92);"><%= error %></p>
     <% } %>
     <form action="/login" method="POST">
-        <label>Username:
+        <label>username:
             <input type="text" name="username">
         </label><br>
-        <label>Password:
+        <label>password:
             <input type="password" name="password">
         </label><br>
         <input type="submit" value="Log In">

@@ -4,59 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grey Lodge</title>
+    <link href="../css/index-style.css" rel="stylesheet" type="text/css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Grey Lodge Books</title>
 </head>
 <body>
-    <%- include('../partials/nav.ejs') %>
-    <h1><%= book.title %></h1>
-    <p><%= book.author %></p>
-
-    <h3>Reviews</h3>
-    <% let ratingAverage = 0; %>
-    <% book.reviews.forEach(r => { %>
-        <% ratingAverage += r.rating; %>
-        <div>
-            <p>
-                <strong>
-                    <%= r.rating %>
-                </strong>
-                &nbsp;&nbsp;
-                <%= r.body %>
-            </p>
-        </div>
-    <% }); %>
-
-    <h5>Average Rating <%= parseInt(ratingAverage / book.reviews.length); %></h5>
-
-    <hr>
-    
-    <h3>Leave a review for this book</h3>
-    <form action="/books/<%= book._id %>/reviews" method="POST">
-        <label>Rating:
-            <select name="rating">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5" selected>5</option>
-            </select>
-        </label><br>
-        <label>Review
-            <textarea name="body" cols="30" rows="10"></textarea>
-        </label><br>
-        <input type="submit" value="Add Review">
-    </form>
-
+    <div class="intro">
+        <h1 class="logo-header">
+            <span class="logo"><%= book.title; %></span>
+        </h1>   
+    </div>
+    <div class="desc">
+		<p><%= book.author; %></p>
+        <p class="bio"><%= book.description; %></p>
+        <h4>Price: <%=book.price%></h2>
+        <h4>Qty: <%=book.qty%></h2>
+    </div>
     
     <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
         <input type="submit" value="Delete this Book">
     </form>
 
-
-    <a href="/books/<%= book._id %>/edit">Edit This Book</a> 
-    <br>
-    <a href="/books">Back to Store</a>
-    <br>
-    <a href="/books/new">Add a New Book</a>
+    <ul>
+        <li>
+            <a href="/books/<%= book._id %>/edit">Edit This Book  |</a>
+        </li>
+        <li>
+            <a href="/books">  Back to Store  </a>
+        </li>
+        <li>
+            <a href="/books/new">|  Add a New Book</a>
+        </li>
+    </ul>
+    
 </body>
 </html>

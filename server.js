@@ -24,7 +24,7 @@ db.on('connected', () => console.log('Connected to MongoDB'));
 db.on('error', (err) => console.log('MongoDB Error: ' + err.message));
 
 // mount middleware
-
+app.use("/css", express.static(__dirname + "/css"));
 // body parser middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
