@@ -11,8 +11,10 @@ A rare and hard to find bookseller.
 - Adobe Photoshop
 
 ## Screenshot
+![Alt text](/img/Screenshot01.png)
 
 ## Getting Started
+ - [CHECK OUT GREY LODGE](https://greylodge.herokuapp.com/)
 
 ## Future Enhancements
  - Improved Appearance.
