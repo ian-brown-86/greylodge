@@ -17,9 +17,9 @@
         </h1>   
     </div>
     <h4>- rare books -</h4> 
-        <ul>
+        <ul class="list">
 			<% books.forEach(b => { %>
-			<li><a href="/books/<%= b._id; %>"> <%= b.title; %> </a></li>
+			<li class="list"><a href="/books/<%= b._id; %>"> <%= b.title; %> </a></li>
 			<% }); %>
 		</ul>
         <nav>
@@ -28,7 +28,6 @@
                     <a href="/books/new">Add Book</a>
                     <li><a href="/logout"> | Log Out</a></li>
                 </li>
-
             </ul>
         </nav>
 </body>

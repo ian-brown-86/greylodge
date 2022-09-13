@@ -51,6 +51,10 @@ li {
     display:inline; 
 }
 
+.list {
+    display: block;
+}
+
 a {
     text-decoration: none;
 }
